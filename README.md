@@ -2,8 +2,8 @@
 
 Team:
 
-* Person 1 - Which microservice?
-* Person 2 - Which microservice?
+* Tim Beckett - Service Microservice
+* Eric Warren - Sales Microservice
 
 ## Design
 
