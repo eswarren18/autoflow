@@ -1,3 +1,4 @@
+from decimal import Decimal
 from json import JSONEncoder
 from django.urls import NoReverseMatch
 from django.db.models import QuerySet
@@ -39,6 +40,8 @@ class ModelEncoder(DateEncoder, QuerySetEncoder, JSONEncoder):
                 d[property] = value
             d.update(self.get_extra_data(o))
             return d
+        elif isinstance(o, Decimal):
+            return float(o)
         else:
             return super().default(o)
 
