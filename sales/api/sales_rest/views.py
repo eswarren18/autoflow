@@ -10,7 +10,6 @@ from common.json import ModelEncoder
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
     properties = [
-        "id",
         "vin",
         "sold",
     ]
@@ -44,9 +43,9 @@ class SaleListEncoder(ModelEncoder):
         "price",
     ]
     encoders = {
-        "automobile": AutomobileVO(),
-        # "salesperson": SalespersonListEncoder(),
-        # "customer": CustomerListEncoder(),
+        "automobile": AutomobileVOEncoder(),
+        "salesperson": SalespersonListEncoder(),
+        "customer": CustomerListEncoder(),
     }
 
 @require_http_methods(["GET", "POST"])
@@ -93,23 +92,22 @@ def api_sales(request):
         except AutomobileVO.DoesNotExist:
             return JsonResponse({"Error": "The automobile with the given vin does not exist."}, status=400)
 
-        content["salesperson"] = Salesperson.objects.get(id=1)
-        content["customer"] = Customer.objects.get(id=1)
-        # try:
-        #     salesperson = Salesperson.objects.get(id=content["salesperson"])
-        #     content["salesperson"] = salesperson
-        # except Salesperson.DoesNotExist:
-        #     return JsonResponse({"Error": "The salesperson does not exist."}, status=400)
+        try:
+            salesperson = Salesperson.objects.get(id=content["salesperson"])
+            content["salesperson"] = salesperson
+        except Salesperson.DoesNotExist:
+            return JsonResponse({"Error": "The salesperson does not exist."}, status=400)
 
-        # try:
-        #     customer = Customer.objects.get(id=content["customer"])
-        #     content["customer"] = customer
-        # except Customer.DoesNotExist:
-        #     return JsonResponse({"Error": "The customer does not exist."}, status=400)
+        try:
+            customer = Customer.objects.get(id=content["customer"])
+            content["customer"] = customer
+        except Customer.DoesNotExist:
+            return JsonResponse({"Error": "The customer does not exist."}, status=400)
 
         sale = Sale.objects.create(**content)
-        print(sale.salesperson)
-        print(sale.customer)
-        print(sale.automobile)
-        print(sale.price)
         return JsonResponse(sale, encoder=SaleListEncoder, safe=False)
+
+@require_http_methods(["DELETE"])
+def api_sale(_, id):
+    number, _ = Sale.objects.filter(id=id).delete()
+    return JsonResponse({"Deleted": number > 0})
