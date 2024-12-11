@@ -11,3 +11,20 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;
 }
+
+#dt-search-1{
+	margin-bottom: 10px;
+}
+
+.dt-info{
+	text-align: right;
+	margin-bottom: 5px;
+}
+.dt-paging{
+	float: right;
+}
+.dropdown-item.active {
+	color: green !important;
+	background-color: transparent !important;
+	font-weight: bold;
+  }
