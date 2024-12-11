@@ -25,9 +25,9 @@ function Nav() {
                 Sales
               </a>
               <ul className="dropdown-menu">
-                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/sales">View All Sales</NavLink>
-                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/sales/new">Record New Sale</NavLink>
-                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/sales/history">Salesperson History</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/sales" end>View All Sales</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/sales/new" end>Record New Sale</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/sales/history" end>Salesperson History</NavLink>
               </ul>
             </li>
             <li className="nav-item dropdown">
@@ -41,9 +41,9 @@ function Nav() {
                 Services
               </a>
               <ul className="dropdown-menu">
-                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/services">View All Service History</NavLink>
-                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/services/upcoming">View Upcoming Service Appointments</NavLink>
-                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/services/new">Schedule Service Appointment</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/services" end>View All Service History</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/services/upcoming" end>View Upcoming Service Appointments</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/services/new" end>Schedule Service Appointment</NavLink>
               </ul>
             </li>
             <li className="nav-item dropdown">
@@ -57,8 +57,8 @@ function Nav() {
                 Inventory
               </a>
               <ul className="dropdown-menu">
-                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/inventory">View Inventory</NavLink>
-                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/inventory/new">Add Automobile to Inventory</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/inventory" end>View Inventory</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/inventory/new" end>Add Automobile to Inventory</NavLink>
               </ul>
             </li>
             <li className="nav-item dropdown">
@@ -72,8 +72,8 @@ function Nav() {
                 Sales Team
               </a>
               <ul className="dropdown-menu">
-                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/sales-team">View Sales Team</NavLink>
-                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/sales-team/new">Add Salesperson</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/sales-team" end>View Sales Team</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/sales-team/new" end>Add Salesperson</NavLink>
               </ul>
             </li>
             <li className="nav-item dropdown">
@@ -101,8 +101,8 @@ function Nav() {
                 Customers
               </a>
               <ul className="dropdown-menu">
-                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/customers">View Customers</NavLink>
-                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/customers/new">Add Customer</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/customers" end>View Customers</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/customers/new" end>Add Customer</NavLink>
               </ul>
             </li>
             <li className="nav-item dropdown">
@@ -116,8 +116,8 @@ function Nav() {
                 Manufacturers
               </a>
               <ul className="dropdown-menu">
-                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/manufacturers">View Manufacturers</NavLink>
-                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/manufacturers/new">Add Manufacturer</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/manufacturers" end>View Manufacturers</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/manufacturers/new" end>Add Manufacturer</NavLink>
               </ul>
             </li>
             <li className="nav-item dropdown">
@@ -131,8 +131,8 @@ function Nav() {
                 Models
               </a>
               <ul className="dropdown-menu">
-                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/models">View Models</NavLink>
-                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/models/new">Add Model</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/models" end>View Models</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/models/new" end>Add Model</NavLink>
               </ul>
             </li>
           </ul>
