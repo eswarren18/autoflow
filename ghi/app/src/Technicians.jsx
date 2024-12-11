@@ -6,10 +6,9 @@ import DT from 'datatables.net-bs5';
 DataTable.use(DT);
 
 const columns = [
-  { data: 'id' },
+  { data: 'employee_id' },
   { data: 'first_name' },
-  { data: 'last_name' },
-  { data: 'employee_id' }
+  { data: 'last_name' }
 ];
 
 function Technicians() {
@@ -20,7 +19,13 @@ function Technicians() {
         const response = await fetch('http://localhost:8080/api/technicians/');
         if (response.ok) {
             const data = await response.json();
-            setTechnicians(data.technicians);
+            setTechnicians(data.technicians.map((technician) => {
+                return {
+                    employee_id: technician.employee_id,
+                    first_name: technician.first_name,
+                    last_name: technician.last_name
+                }
+            }));
             console.log(data.technicians)
         } else {
             console.error(response);
@@ -60,10 +65,9 @@ function Technicians() {
 >
     <thead>
         <tr>
-            <th>ID</th>
+            <th>Employee ID</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Employee ID</th>
         </tr>
     </thead>
 </DataTable>
