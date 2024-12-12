@@ -59,7 +59,7 @@ export default function NewSale() {
         const postResponse = await fetch(resourceUrl, options);
 
         if (postResponse.ok) {
-            setFormState({ ...formState, vin: "", price: "", showSuccess: true });
+            setFormState({ ...formState, vin: "", salesperson: "", customer: "", price: "", showSuccess: true });
             setTimeout(() => {
                 setFormState(initialState);
             }, 3000);

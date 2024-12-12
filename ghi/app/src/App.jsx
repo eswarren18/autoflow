@@ -10,6 +10,8 @@ import NewSalesperson from "./NewSalesperson";
 import ServiceHistory from "./ServiceHistory";
 import NewCustomer from "./NewCustomer";
 import NewSale from "./NewSale";
+import Customers from "./Customers";
+import Sales from "./Sales";
 
 function App() {
 	return (
@@ -25,7 +27,9 @@ function App() {
 					<Route path="/services/" element={<ServiceHistory />} />
                     <Route path="/sales-team" element={<Salespeople />} />
                     <Route path="/sales-team/new" element={<NewSalesperson />} />
+                    <Route path="/customers" element={<Customers />} />
                     <Route path="/customers/new" element={<NewCustomer />} />
+                    <Route path="/sales" element={<Sales />} />
                     <Route path="/sales/new" element={<NewSale />} />
 				</Routes>
 			</div>

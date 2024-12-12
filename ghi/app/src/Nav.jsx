@@ -27,7 +27,6 @@ function Nav() {
               <ul className="dropdown-menu">
                 <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/sales" end>View All Sales</NavLink>
                 <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/sales/new" end>Record New Sale</NavLink>
-                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/sales/history" end>Salesperson History</NavLink>
               </ul>
             </li>
             <li className="nav-item dropdown">
