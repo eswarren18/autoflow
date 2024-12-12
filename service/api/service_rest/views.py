@@ -67,7 +67,7 @@ def api_appointments(request):
     if request.method == "GET":
         try:
             appointments = Appointment.objects.select_related('technician').all()
-            data = [{
+            data = {"appointments":[{
                     "id": appointment.id,
                     "date_time": appointment.date_time,
                     "reason": appointment.reason,
@@ -80,7 +80,7 @@ def api_appointments(request):
                         "last_name": appointment.technician.last_name,
                         "employee_id": appointment.technician.employee_id
                     },
-                } for appointment in appointments]
+                } for appointment in appointments]}
             return JsonResponse(data, safe=False)
         except Exception as e:
             return JsonResponse({"error": str(e)}, status=400)

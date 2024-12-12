@@ -4,6 +4,7 @@ import Nav from "./Nav";
 import Technicians from "./Technicians"
 import NewTechnician from "./NewTechnician";
 import NewAppointment from "./NewAppointment";
+import PendingAppointments from "./PendingAppointments";
 import NewSalesperson from "./NewSalesperson";
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
 					<Route path="/technicians" element={<Technicians />} />
 					<Route path="/technicians/new" element={<NewTechnician />} />
 					<Route path="/services/new" element={<NewAppointment />} />
-                    <Route path="/sales-team/new" element={<NewSalesperson />} />
+					<Route path="/services/upcoming" element={<PendingAppointments />} />
+					<Route path="/sales-team/new" element={<NewSalesperson />} />
 				</Routes>
 			</div>
 		</BrowserRouter>
