@@ -1,25 +1,20 @@
 import { useState } from "react";
 
+const initialState = {
+    firstName: "",
+    lastName: "",
+    employeeId: "",
+    showSuccess: false,
+}
+
 export default function Salesperson() {
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [employeeId, setEmployeeId] = useState("");
-    const [showSuccess, setShowSuccess] = useState(false);
+    const [formState, setFormState] = useState(initialState);
+    const { firstName, lastName, employeeId, showSuccess } = formState;
 
-    const handleFirstNameChange = async (event) => {
-        const newValue = event.target.value;
-        setFirstName(newValue);
-    };
-
-    const handleLastNameChange = async (event) => {
-        const newValue = event.target.value;
-        setLastName(newValue);
-    };
-
-    const handleEmployeeIdChange = async (event) => {
-        const newValue = event.target.value;
-        setEmployeeId(newValue);
-    };
+    const handleChange = async (event) => {
+        const { id, value } = event.target;
+        setFormState({ ...formState, [id]: value });
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -39,13 +34,10 @@ export default function Salesperson() {
 
         const postResponse = await fetch(resourceUrl, options);
         if (postResponse.ok) {
-            const newSalesperson = await postResponse.json();
-            console.log(newSalesperson);
-            setFirstName("");
-            setLastName("");
-            setEmployeeId("");
-            setShowSuccess(true);
-            setTimeout(() => setShowSuccess(false), 3000);
+            setFormState({ ...formState, firstName: "", lastName: "", employeeId: "", showSuccess: true });
+            setTimeout(() => {
+                setFormState(initialState);
+            }, 3000);
         }
     };
 
@@ -61,7 +53,7 @@ export default function Salesperson() {
                         id="firstName"
                         value={firstName}
                         placeholder="First Name"
-                        onChange={handleFirstNameChange}
+                        onChange={handleChange}
                     />
                     <label htmlFor="firstName">
                         First Name
@@ -75,7 +67,7 @@ export default function Salesperson() {
                         id="lastName"
                         value={lastName}
                         placeholder="Last Name"
-                        onChange={handleLastNameChange}
+                        onChange={handleChange}
                     />
                     <label htmlFor="lastName">
                         Last Name
@@ -89,7 +81,7 @@ export default function Salesperson() {
                         id="employeeId"
                         value={employeeId}
                         placeholder="Employee ID"
-                        onChange={handleEmployeeIdChange}
+                        onChange={handleChange}
                     />
                     <label htmlFor="employeeId">
                         Employee ID
