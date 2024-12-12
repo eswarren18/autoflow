@@ -7,6 +7,8 @@ import NewAppointment from "./NewAppointment";
 import PendingAppointments from "./PendingAppointments";
 import NewSalesperson from "./NewSalesperson";
 import ServiceHistory from "./ServiceHistory";
+import NewCustomer from "./NewCustomer";
+import NewSale from "./NewSale";
 
 function App() {
 	return (
@@ -20,7 +22,9 @@ function App() {
 					<Route path="/services/new" element={<NewAppointment />} />
 					<Route path="/services/upcoming" element={<PendingAppointments />} />
 					<Route path="/services/" element={<ServiceHistory />} />
-					<Route path="/sales-team/new" element={<NewSalesperson />} />
+                    <Route path="/sales-team/new" element={<NewSalesperson />} />
+                    <Route path="/customers/new" element={<NewCustomer />} />
+                    <Route path="/sales/new" element={<NewSale />} />
 				</Routes>
 			</div>
 		</BrowserRouter>
