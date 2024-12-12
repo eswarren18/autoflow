@@ -100,7 +100,7 @@ export default function NewCustomer() {
                         placeholder="Phone Number"
                         onChange={handleChange}
                     />
-                    <label htmlFor="address">
+                    <label htmlFor="phoneNumber">
                         Phone Number
                     </label>
                 </div>
