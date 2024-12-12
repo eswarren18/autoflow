@@ -5,6 +5,7 @@ import Technicians from "./Technicians"
 import NewTechnician from "./NewTechnician";
 import NewAppointment from "./NewAppointment";
 import PendingAppointments from "./PendingAppointments";
+import Salespeople from "./Salespeople";
 import NewSalesperson from "./NewSalesperson";
 import ServiceHistory from "./ServiceHistory";
 import NewCustomer from "./NewCustomer";
@@ -22,6 +23,7 @@ function App() {
 					<Route path="/services/new" element={<NewAppointment />} />
 					<Route path="/services/upcoming" element={<PendingAppointments />} />
 					<Route path="/services/" element={<ServiceHistory />} />
+                    <Route path="/sales-team" element={<Salespeople />} />
                     <Route path="/sales-team/new" element={<NewSalesperson />} />
                     <Route path="/customers/new" element={<NewCustomer />} />
                     <Route path="/sales/new" element={<NewSale />} />
