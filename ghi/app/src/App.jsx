@@ -5,6 +5,7 @@ import Technicians from "./Technicians"
 import NewTechnician from "./NewTechnician";
 import NewAppointment from "./NewAppointment";
 import NewSalesperson from "./NewSalesperson";
+import NewCustomer from "./NewCustomer";
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 					<Route path="/technicians/new" element={<NewTechnician />} />
 					<Route path="/services/new" element={<NewAppointment />} />
                     <Route path="/sales-team/new" element={<NewSalesperson />} />
+                    <Route path="/customers/new" element={<NewCustomer />} />
 				</Routes>
 			</div>
 		</BrowserRouter>

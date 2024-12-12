@@ -1,15 +1,15 @@
 import { useState } from "react";
 
-export default function NewSalesperson() {
+export default function NewCustomer() {
     const initialState = {
         firstName: "",
         lastName: "",
-        employeeId: "",
+        address: "",
+        phoneNumber: "",
         showSuccess: false,
     };
-
     const [formState, setFormState] = useState(initialState);
-    const { firstName, lastName, employeeId, showSuccess } = formState;
+    const { firstName, lastName, address, phoneNumber, showSuccess } = formState;
 
     const handleChange = async (event) => {
         const { id, value } = event.target;
@@ -21,9 +21,11 @@ export default function NewSalesperson() {
         const formData = {
             "first_name": firstName,
             "last_name": lastName,
-            "employee_id": employeeId,
+            "address": address,
+            "phone_number": phoneNumber,
         };
-        const resourceUrl = "http://localhost:8090/api/salespeople/";
+
+        const resourceUrl = "http://localhost:8090/api/customers/";
         const options = {
             method: "POST",
             headers: {
@@ -33,8 +35,9 @@ export default function NewSalesperson() {
         };
 
         const postResponse = await fetch(resourceUrl, options);
+
         if (postResponse.ok) {
-            setFormState({ ...formState, firstName: "", lastName: "", employeeId: "", showSuccess: true });
+            setFormState({ ...formState, firstName: "", lastName: "", address: "", phoneNumber: "", showSuccess: true });
             setTimeout(() => {
                 setFormState(initialState);
             }, 3000);
@@ -44,7 +47,7 @@ export default function NewSalesperson() {
     return (
         <div className="d-flex align-items-center flex-column">
             <form className="col-6 p-4 border rounded" onSubmit={handleSubmit}>
-                <h1>Add a Salesperson</h1>
+                <h1>Add a Customer</h1>
                 <div className="form-floating mb-3">
                     <input
                         required
@@ -78,13 +81,27 @@ export default function NewSalesperson() {
                         required
                         type="text"
                         className="form-control"
-                        id="employeeId"
-                        value={employeeId}
-                        placeholder="Employee ID"
+                        id="address"
+                        value={address}
+                        placeholder="Address"
                         onChange={handleChange}
                     />
-                    <label htmlFor="employeeId">
-                        Employee ID
+                    <label htmlFor="address">
+                        Address
+                    </label>
+                </div>
+                <div className="form-floating mb-3">
+                    <input
+                        required
+                        type="text"
+                        className="form-control"
+                        id="phoneNumber"
+                        value={phoneNumber}
+                        placeholder="Phone Number"
+                        onChange={handleChange}
+                    />
+                    <label htmlFor="address">
+                        Phone Number
                     </label>
                 </div>
                 <button className="btn btn-success">Create</button>
