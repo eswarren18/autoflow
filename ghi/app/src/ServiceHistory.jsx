@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
-function PendingAppointments() {
+function ServiceHistory() {
   const [appointments, setAppointments] = useState([]);
   const [autos, setAutos] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -21,13 +21,13 @@ function PendingAppointments() {
     }
   }
 
-  async function fetchPendingAppointments(autoVins) {
+  async function fetchAppointments(autoVins) {
     try {
       const response = await fetch('http://localhost:8080/api/appointments/');
       if (response.ok) {
         const data = await response.json();
         setAppointments(
-          data.appointments.filter(a => a.status === 'pending')
+          data.appointments
         );
       } else {
         console.error(response);
@@ -43,7 +43,7 @@ function PendingAppointments() {
 
   useEffect(() => {
     if (autos.length > 0) {
-      fetchPendingAppointments(autos);
+      fetchAppointments(autos);
     }
   }, [autos]);
 
@@ -58,25 +58,10 @@ function PendingAppointments() {
   const currentRecords = filteredAppointments.slice(indexOfFirstRecord, indexOfLastRecord);
   const totalPages = Math.ceil(filteredAppointments.length / 10);
 
-  async function changeAppointmentStatus(id, status) {
-    try {
-      const response = await fetch(`http://localhost:8080/api/appointments/${id}/${status}/`, {
-        method: 'PUT'
-      });
-      if (response.ok) {
-        setAppointments(appointments.filter(item => item.id !== id));
-      } else {
-        console.error(response);
-      }
-    } catch (error) {
-      console.error('Error updating appointment status:', error);
-    }
-}
-
   return (
     <div className="card mt-2 p-4">
       <div className="d-flex justify-content-between align-items-start mb-2">
-        <div className="h2">Scheduled Service Appointments</div>
+        <div className="h2">Service History</div>
         <NavLink className="btn btn-success fw-bold" to="/services/new">
           Schedule New Appointment
         </NavLink>
@@ -84,7 +69,7 @@ function PendingAppointments() {
       <input
         type="text"
         className="form-control mb-2"
-        placeholder="Filter Scheduled Appointments..."
+        placeholder="Filter Service History..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
@@ -98,7 +83,7 @@ function PendingAppointments() {
             <th>Time</th>
             <th>Technician</th>
             <th>Reason</th>
-            <th></th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -110,17 +95,7 @@ function PendingAppointments() {
               <td>{new Date(new Date(appointment.date_time).getTime() + 8 * 60 * 60 * 1000).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })}</td>
               <td>{appointment.technician.first_name} {appointment.technician.last_name}</td>
               <td>{appointment.reason}</td>
-              <td>
-                <div className="dropdown">
-                  <button style={{ backgroundColor: 'lightblue'}} className="btn btn-sm  py-0 dropdown-toggle" type="button" id={`dropdownMenuButton${appointment.id}`} data-bs-toggle="dropdown" aria-expanded="false">
-                    Change Status
-                  </button>
-                  <ul className="dropdown-menu" aria-labelledby={`dropdownMenuButton${appointment.id}`}>
-                    <li><span onClick={() => changeAppointmentStatus(appointment.id, 'finish')} className="dropdown-item">Mark as completed</span></li>
-                    <li><span onClick={() => changeAppointmentStatus(appointment.id, 'cancel')} className="dropdown-item">Cancel appointment</span></li>
-                  </ul>
-                </div>
-              </td>
+              <td>{appointment.status.toUpperCase()}</td>
             </tr>
           ))}
         </tbody>
@@ -173,4 +148,4 @@ function PendingAppointments() {
   )
 }
 
-export default PendingAppointments
+export default ServiceHistory
