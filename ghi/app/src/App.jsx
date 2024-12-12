@@ -12,6 +12,12 @@ import NewCustomer from "./NewCustomer";
 import NewSale from "./NewSale";
 import Customers from "./Customers";
 import Sales from "./Sales";
+import Cars from "./Cars";
+import NewCar from "./NewCar";
+import Manufacturers from "./Manufacturers"
+import NewManufacturer from "./NewManufacturer";
+import Models from "./Models"
+import NewModel from "./NewModel"
 
 function App() {
 	return (
@@ -31,6 +37,12 @@ function App() {
                     <Route path="/customers/new" element={<NewCustomer />} />
                     <Route path="/sales" element={<Sales />} />
                     <Route path="/sales/new" element={<NewSale />} />
+                    <Route path="/inventory" element={<Cars />} />
+                    <Route path="/inventory/new" element={<NewCar />} />
+                    <Route path="/models" element={<Models />} />
+                    <Route path="/models/new" element={<NewModel />} />
+                    <Route path="/manufacturers" element={<Manufacturers />} />
+                    <Route path="/manufacturers/new" element={<NewManufacturer />} />
 				</Routes>
 			</div>
 		</BrowserRouter>
