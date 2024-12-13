@@ -1,11 +1,73 @@
-import React from 'react'
+import { useState } from "react";
 
-function NewManufacturer() {
-  return (
-    <div>
+export default function NewManufacturer() {
+    const initialState = {
+        manufacturer: "",
+        showSuccess: false,
+    };
 
-    </div>
-  )
+    const [formState, setFormState] = useState(initialState);
+    const { manufacturer, showSuccess } = formState;
+
+    const handleFormChange = async (event) => {
+        const { id, value } = event.target;
+        setFormState({...formState, [id]: value,});
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const formData = {
+            "name": manufacturer,
+        };
+
+        console.log(formData)
+
+        const resourceUrl = "http://localhost:8100/api/manufacturers/";
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+        };
+
+        const postResponse = await fetch(resourceUrl, options);
+        if (postResponse.ok) {
+            setFormState({ ...formState, manufacturer: "", showSuccess: true });
+            setTimeout(() => {
+                setFormState(initialState);
+            }, 3000);
+        }
+    };
+
+    return (
+        <div className="d-flex align-items-center flex-column">
+            <form className="col-6 p-4 border rounded" onSubmit={handleSubmit}>
+                <h1>Add a Manufacturer</h1>
+                <div className="form-floating mb-3">
+                    <input
+                        required
+                        type="text"
+                        className="form-control"
+                        id="manufacturer"
+                        value={manufacturer}
+                        placeholder="Manufacturer"
+                        onChange={handleFormChange}
+                    />
+                    <label htmlFor="manufacturer">
+                        Manufacturer
+                    </label>
+                </div>
+                <button className="btn btn-success">Create</button>
+            </form>
+            {showSuccess && (
+                <div
+                    className="alert alert-success col-6 p-2 mt-4"
+                    role="alert"
+                >
+                    Form successfully submitted!
+                </div>
+            )}
+        </div>
+    );
 }
-
-export default NewManufacturer
