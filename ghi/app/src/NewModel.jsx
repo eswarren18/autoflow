@@ -17,7 +17,6 @@ export default function NewModel() {
         setFormState({ ...formState, [id]: value });
     };
 
-    //start here
     const fetchData = async () => {
         const getResponse = await fetch("http://localhost:8100/api/manufacturers/")
         if (getResponse.ok) {
