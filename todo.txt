@@ -1,0 +1,4 @@
+-- Change sales/sales team nav
+-- diagnose why menus not closing after clicking on link
+-- Add className='text-capitalize' where appropriate
+-- Consider ordering data before displaying in tables
