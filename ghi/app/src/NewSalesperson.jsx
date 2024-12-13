@@ -34,9 +34,9 @@ export default function NewSalesperson() {
 
         const postResponse = await fetch(resourceUrl, options);
         if (postResponse.ok) {
-            setFormState({ ...formState, firstName: "", lastName: "", employeeId: "", showSuccess: true });
+            setFormState(prevState => ({ ...prevState, firstName: "", lastName: "", employeeId: "", showSuccess: true }));
             setTimeout(() => {
-                setFormState(initialState);
+                setFormState(prevState => ({ ...prevState, showSuccess: false }));
             }, 3000);
         }
     };

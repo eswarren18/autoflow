@@ -49,9 +49,9 @@ export default function NewModel() {
         const postResponse = await fetch(resourceUrl, options);
 
         if (postResponse.ok) {
-            setFormState({ ...formState, name: "", pictureUrl: "", manufacturer: "", showSuccess: true });
+            setFormState(prevState => ({ ...prevState, name: "", pictureUrl: "", manufacturer: "", showSuccess: true }));
             setTimeout(() => {
-                setFormState(initialState);
+                setFormState(prevState => ({ ...prevState, showSuccess: false }));
             }, 3000);
         }
     };

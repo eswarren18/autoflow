@@ -21,14 +21,15 @@ export default function NewSale() {
     };
 
     const fetchData = async () => {
-        const getVinResponse = await fetch("http://localhost:8100/api/automobiles/")
+        const getAutoResponse = await fetch("http://localhost:8100/api/automobiles/")
         const getSalespersonResponse = await fetch("http://localhost:8090/api/salespeople/")
         const getCustomerResponse = await fetch ("http://localhost:8090/api/customers/")
-        if (getVinResponse.ok && getSalespersonResponse.ok && getCustomerResponse.ok) {
-            const { autos } = await getVinResponse.json();
+        if (getAutoResponse.ok && getSalespersonResponse.ok && getCustomerResponse.ok) {
+            const { autos } = await getAutoResponse.json();
             const { salespeople } = await getSalespersonResponse.json();
             const { customers } = await getCustomerResponse.json();
-            setAutosState(autos);
+            const filterdAutos = autos.filter(auto => !auto.sold);
+            setAutosState(filterdAutos);
             setSalespeopleState(salespeople);
             setCustomersState(customers);
         }
@@ -47,8 +48,8 @@ export default function NewSale() {
             "price": price,
         };
 
-        const resourceUrl = "http://localhost:8090/api/sales/";
-        const options = {
+        const postUrl = "http://localhost:8090/api/sales/";
+        const postOptions = {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -56,12 +57,23 @@ export default function NewSale() {
             body: JSON.stringify(formData),
         };
 
-        const postResponse = await fetch(resourceUrl, options);
+        const postResponse = await fetch(postUrl, postOptions);
 
-        if (postResponse.ok) {
-            setFormState({ ...formState, vin: "", salesperson: "", customer: "", price: "", showSuccess: true });
+        const putUrl = `http://localhost:8100/api/automobiles/${vin}/`;
+        const putOptions = {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({"sold": true}),
+        }
+
+        const putResponse = await fetch(putUrl, putOptions);
+
+        if (postResponse.ok && putResponse.ok) {
+            setFormState(prevState => ({ ...prevState, vin: "", salesperson: "", customer: "", price: "", showSuccess: true }));
             setTimeout(() => {
-                setFormState(initialState);
+                setFormState(prevState => ({ ...prevState, showSuccess: false }));
             }, 3000);
         }
     };

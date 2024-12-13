@@ -33,9 +33,9 @@ export default function NewManufacturer() {
 
         const postResponse = await fetch(resourceUrl, options);
         if (postResponse.ok) {
-            setFormState({ ...formState, manufacturer: "", showSuccess: true });
+            setFormState(prevState => ({ ...prevState, manufacturer: "", showSuccess: true }));
             setTimeout(() => {
-                setFormState(initialState);
+                setFormState(prevState => ({ ...prevState, showSuccess: false }));
             }, 3000);
         }
     };

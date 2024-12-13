@@ -34,11 +34,10 @@ export default function NewCar() {
         event.preventDefault();
         const formData = {
             "color": color,
-            "year": year,
+            "year": parseInt(year),
             "vin": vin,
             "model_id": parseInt(model),
         };
-
         const resourceUrl = "http://localhost:8100/api/automobiles/";
         const options = {
             method: "POST",
@@ -51,9 +50,9 @@ export default function NewCar() {
         const postResponse = await fetch(resourceUrl, options);
 
         if (postResponse.ok) {
-            setFormState({ ...formState, color: "", year: "", vin: "", model: "", showSuccess: true });
+            setFormState(prevState => ({ ...prevState, color: "", year: "", vin: "", model: "", showSuccess: true }));
             setTimeout(() => {
-                setFormState(initialState);
+                setFormState(prevState => ({ ...prevState, showSuccess: false }));
             }, 3000);
         }
     };
@@ -98,6 +97,7 @@ export default function NewCar() {
                         id="vin"
                         value={vin}
                         placeholder="Vin"
+                        maxLength="17"
                         onChange={handleChange}
                     />
                     <label htmlFor="vin">

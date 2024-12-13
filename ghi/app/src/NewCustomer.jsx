@@ -37,9 +37,9 @@ export default function NewCustomer() {
         const postResponse = await fetch(resourceUrl, options);
 
         if (postResponse.ok) {
-            setFormState({ ...formState, firstName: "", lastName: "", address: "", phoneNumber: "", showSuccess: true });
+            setFormState(prevState => ({ ...prevState, firstName: "", lastName: "", address: "", phoneNumber: "", showSuccess: true }));
             setTimeout(() => {
-                setFormState(initialState);
+                setFormState(prevState => ({ ...prevState, showSuccess: false }));
             }, 3000);
         }
     };
@@ -98,6 +98,7 @@ export default function NewCustomer() {
                         id="phoneNumber"
                         value={phoneNumber}
                         placeholder="Phone Number"
+                        maxLength="12"
                         onChange={handleChange}
                     />
                     <label htmlFor="phoneNumber">

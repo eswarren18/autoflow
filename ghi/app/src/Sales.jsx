@@ -9,7 +9,6 @@ export default function Sales() {
         if (getSaleResponse.ok) {
             const { sales } = await getSaleResponse.json();
             setSalesState(sales);
-            console.log(sales)
         }
     };
 
