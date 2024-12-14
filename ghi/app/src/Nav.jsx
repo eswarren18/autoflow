@@ -83,7 +83,7 @@ function Nav() {
             {/* Sales Team Dropdown */}
             <li className="nav-item dropdown">
               <a
-                className={`nav-link dropdown-toggle ${location.pathname.startsWith('/sales-team') ? 'active' : ''}`}
+                className={`nav-link dropdown-toggle ${location.pathname.startsWith('/staff/sales') ? 'active' : ''}`}
                 role="button"
                 onClick={() => handleDropdownToggle('sales-team')}
                 aria-expanded={openDropdown === 'sales-team'}
@@ -91,15 +91,15 @@ function Nav() {
                 Sales Team
               </a>
               <ul className={`dropdown-menu ${openDropdown === 'sales-team' ? 'show' : ''}`}>
-                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/sales-team" end>View Sales Team</NavLink>
-                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/sales-team/new" end>Add Salesperson</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/staff/sales" end>View Sales Team</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/staff/sales/new" end>Add Salesperson</NavLink>
               </ul>
             </li>
 
             {/* Technicians Dropdown */}
             <li className="nav-item dropdown">
               <a
-                className={`nav-link dropdown-toggle ${location.pathname.startsWith('/technicians') ? 'active' : ''}`}
+                className={`nav-link dropdown-toggle ${location.pathname.startsWith('/staff/technicians') ? 'active' : ''}`}
                 role="button"
                 onClick={() => handleDropdownToggle('technicians')}
                 aria-expanded={openDropdown === 'technicians'}
@@ -107,8 +107,8 @@ function Nav() {
                 Technicians
               </a>
               <ul className={`dropdown-menu ${openDropdown === 'technicians' ? 'show' : ''}`}>
-                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/technicians" end>View Technicians</NavLink>
-                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/technicians/new" end>Add Technician</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/staff/technicians" end>View Technicians</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="staff/technicians/new" end>Add Technician</NavLink>
               </ul>
             </li>
 

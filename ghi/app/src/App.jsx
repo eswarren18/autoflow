@@ -26,13 +26,13 @@ function App() {
 			<div className="container mt-4">
 				<Routes>
 					<Route path="/" element={<MainPage />} />
-					<Route path="/technicians" element={<Technicians />} />
-					<Route path="/technicians/new" element={<NewTechnician />} />
+					<Route path="/staff/technicians" element={<Technicians />} />
+					<Route path="/staff/technicians/new" element={<NewTechnician />} />
 					<Route path="/services/new" element={<NewAppointment />} />
 					<Route path="/services/upcoming" element={<PendingAppointments />} />
 					<Route path="/services/" element={<ServiceHistory />} />
-                    <Route path="/sales-team" element={<Salespeople />} />
-                    <Route path="/sales-team/new" element={<NewSalesperson />} />
+                    <Route path="/staff/sales" element={<Salespeople />} />
+                    <Route path="/staff/sales/new" element={<NewSalesperson />} />
                     <Route path="/customers" element={<Customers />} />
                     <Route path="/customers/new" element={<NewCustomer />} />
                     <Route path="/sales" element={<Sales />} />
