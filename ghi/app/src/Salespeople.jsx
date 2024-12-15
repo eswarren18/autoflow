@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Salespeople() {
     const [salespeopleState, setSalespeopleState] = useState([]);
@@ -17,18 +18,27 @@ export default function Salespeople() {
 
     return (
         <div className="col-6 p-4 border rounded w-100">
-            <h1>Salespeople</h1>
+            <div className="row">
+                <div className="col-md-4">
+                    <h1><b>Salespeople</b></h1>
+                </div>
+                <div className="col-md-4 offset-md-4 d-flex align-items-center justify-content-end">
+                    <Link to="/sales-team/new" className="btn btn-success">
+                        Add a Salesperson
+                    </Link>
+                </div>
+            </div>
             {salespeopleState.length > 0 ? (
                 <table className="table table-striped">
                     <thead>
                         <tr>
-                            <th>Employee ID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
+                            <th className="col-2">Employee ID</th>
+                            <th className="col-5">First Name</th>
+                            <th className="col-5">Last Name</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {salespeopleState.map(salesperson => {
+                    <tbody className="table-group-divider">
+                        {salespeopleState.map((salesperson) => {
                             return (
                                 <tr key={salesperson.id}>
                                     <td>{salesperson.employee_id}</td>
@@ -40,7 +50,10 @@ export default function Salespeople() {
                     </tbody>
                 </table>
             ) : (
-                <p>There are currently no salespeople on record. Use the Add Salesperson form to add a salesperson.</p>
+                <p>
+                    There are currently no salespeople on record. Use the Add
+                    Salesperson form to add a salesperson.
+                </p>
             )}
         </div>
     );

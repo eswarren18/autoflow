@@ -98,7 +98,8 @@ export default function NewCustomer() {
                         id="phoneNumber"
                         value={phoneNumber}
                         placeholder="Phone Number"
-                        maxLength="12"
+                        minLength="10"
+                        maxLength="10"
                         onChange={handleChange}
                     />
                     <label htmlFor="phoneNumber">
