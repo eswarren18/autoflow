@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 
 export default function Sales() {
     const [salesState, setSalesState] = useState([]);
@@ -25,8 +27,17 @@ export default function Sales() {
         : salesState;
 
     return (
-        <div className="col-6 p-4 border rounded w-100">
-            <h1>Sales History</h1>
+        <div className="p-4 border rounded w-100">
+            <div className="row">
+                <div className="col-md-4">
+                    <h1><b>Sales History</b></h1>
+                </div>
+                <div className="col-md-4 offset-md-4 d-flex align-items-center justify-content-end">
+                    <Link to="/sales/new" className="btn btn-success">
+                        Add a Sales Record
+                    </Link>
+                </div>
+            </div>
             <div className="form-floating mb-3">
                 <select required className="form-select" id="salesperson" value={salespersonState} onChange={handleSalespersonChange}>
                     <option value="">Select a Salesperson</option>
@@ -45,14 +56,14 @@ export default function Sales() {
                 <table className="table table-striped">
                     <thead>
                         <tr>
-                            <th>Salesperson Employee ID</th>
-                            <th>Salesperson Name</th>
-                            <th>Customer</th>
-                            <th>VIN</th>
-                            <th>Price</th>
+                            <th className="col-1">Staff ID</th>
+                            <th className="col-3">Sales Staff</th>
+                            <th className="col-3">Customer</th>
+                            <th className="col-3">VIN</th>
+                            <th className="col-2">Price</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="table-group-divider">
                         {filteredSales.map(sale => {
                             return (
                                 <tr key={sale.id}>
