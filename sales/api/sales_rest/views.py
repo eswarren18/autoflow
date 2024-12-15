@@ -56,7 +56,7 @@ class SaleListEncoder(ModelEncoder):
 def api_salespeople(request):
     if request.method == "GET":
         try:
-            salespeople = Salesperson.objects.all()
+            salespeople = Salesperson.objects.all().order_by("last_name")
             return JsonResponse({"salespeople": salespeople}, encoder=SalespersonListEncoder)
         except Exception as e:
             return JsonResponse({"Error": str(e)}, status=500)
@@ -82,7 +82,7 @@ def api_salesperson(_, id):
 def api_customers(request):
     if request.method == "GET":
         try:
-            customers = Customer.objects.all()
+            customers = Customer.objects.all().order_by("last_name")
             return JsonResponse({"customers": customers}, encoder=CustomerListEncoder)
         except Exception as e:
             return JsonResponse({"Error": str(e)}, status=500)
@@ -108,7 +108,7 @@ def api_customer(_, id):
 def api_sales(request):
     if request.method == "GET":
         try:
-            sales = Sale.objects.all()
+            sales = Sale.objects.all().order_by("salesperson__last_name")
             return JsonResponse({"sales": sales}, encoder=SaleListEncoder)
         except Exception as e:
             return JsonResponse({"Error": str(e)}, status=500)

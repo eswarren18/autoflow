@@ -97,6 +97,7 @@ export default function NewCar() {
                         id="vin"
                         value={vin}
                         placeholder="Vin"
+                        minLength="17"
                         maxLength="17"
                         onChange={handleChange}
                     />

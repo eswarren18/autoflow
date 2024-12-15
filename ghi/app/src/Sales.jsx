@@ -78,7 +78,7 @@ export default function Sales() {
                     </tbody>
                 </table>
             ) : (
-                <p>There are currently no sales on record. Use the Add Sale Record form to add a sale.</p>
+                <p>There are currently no sales on record. Use the Add a Sales Record form to add a sale.</p>
             )}
         </div>
     );
