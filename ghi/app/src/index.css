@@ -28,3 +28,7 @@ code {
 	background-color: transparent !important;
 	font-weight: bold;
   }
+
+.no-striped-background td {
+    background-color: white !important;
+}

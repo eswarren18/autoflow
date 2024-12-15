@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Sales() {
     const [salesState, setSalesState] = useState([]);
+    const [salespeopleState, setSalespeopleState] = useState([]);
     const [salespersonState, setSalespersonState] = useState("");
 
     const fetchSales = async () => {
@@ -14,12 +15,21 @@ export default function Sales() {
         }
     };
 
+    const fetchSalespeople = async () => {
+        const getSalespeopleResponse = await fetch ("http://localhost:8090/api/salespeople/");
+        if (getSalespeopleResponse.ok) {
+            const { salespeople } = await getSalespeopleResponse.json();
+            setSalespeopleState(salespeople);
+        }
+    }
+
     const handleSalespersonChange = async (event) => {
         setSalespersonState(event.target.value);
     };
 
     useEffect(() => {
         fetchSales();
+        fetchSalespeople();
     }, []);
 
     const filteredSales = salespersonState
@@ -41,10 +51,9 @@ export default function Sales() {
             <div className="form-floating mb-3">
                 <select required className="form-select" id="salesperson" value={salespersonState} onChange={handleSalespersonChange}>
                     <option value="">Select a Salesperson</option>
-                    {Array.from(new Set(salesState.map((sale) => sale.salesperson.id))).map((id) => {
-                        const salesperson = salesState.find((sale) => sale.salesperson.id === id)?.salesperson;
-                        return(
-                            <option key={id} value={id}>
+                    {salespeopleState.map((salesperson) => {
+                        return (
+                            <option key={salesperson.id} value={salesperson.id}>
                                 {`${salesperson.first_name} ${salesperson.last_name}`}
                             </option>
                         )
@@ -64,8 +73,8 @@ export default function Sales() {
                         </tr>
                     </thead>
                     <tbody className="table-group-divider">
-                        {filteredSales.map(sale => {
-                            return (
+                        {filteredSales.length > 0 ? (
+                            filteredSales.map((sale) => (
                                 <tr key={sale.id}>
                                     <td>{sale.salesperson.employee_id}</td>
                                     <td>{`${sale.salesperson.first_name} ${sale.salesperson.last_name}`}</td>
@@ -73,8 +82,14 @@ export default function Sales() {
                                     <td>{sale.automobile.vin}</td>
                                     <td>{`$${sale.price.toFixed(2)}`}</td>
                                 </tr>
-                            );
-                        })}
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan="12">
+                                    Employee does not have any sales on record.
+                                </td>
+                            </tr>
+                        )}
                     </tbody>
                 </table>
             ) : (

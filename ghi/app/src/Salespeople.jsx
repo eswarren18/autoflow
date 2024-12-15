@@ -23,7 +23,7 @@ export default function Salespeople() {
                     <h1><b>Salespeople</b></h1>
                 </div>
                 <div className="col-md-4 offset-md-4 d-flex align-items-center justify-content-end">
-                    <Link to="/sales-team/new" className="btn btn-success">
+                    <Link to="/sales/new" className="btn btn-success">
                         Add a Salesperson
                     </Link>
                 </div>
