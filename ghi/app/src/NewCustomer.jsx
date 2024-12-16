@@ -16,14 +16,24 @@ export default function NewCustomer() {
         setFormState({ ...formState, [id]: value });
     };
 
+    const handlePhoneChange = (event) => {
+        let input = event.target.value.replace(/\D/g, "");
+        setFormState({ ...formState, phoneNumber: input })
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        const revisedPhoneNumber = `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6)}`;
+
         const formData = {
             "first_name": firstName,
             "last_name": lastName,
             "address": address,
-            "phone_number": phoneNumber,
+            "phone_number": revisedPhoneNumber,
         };
+
+        console.log(formData)
 
         const resourceUrl = "http://localhost:8090/api/customers/";
         const options = {
@@ -100,7 +110,7 @@ export default function NewCustomer() {
                         placeholder="Phone Number"
                         minLength="10"
                         maxLength="10"
-                        onChange={handleChange}
+                        onChange={handlePhoneChange}
                     />
                     <label htmlFor="phoneNumber">
                         Phone Number
