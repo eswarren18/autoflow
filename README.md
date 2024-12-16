@@ -31,13 +31,15 @@ CarCar is has three interactive microservices.
 - **Services**
 - **Sales**
 
+![Domain Driven Design Diagram](ddd-diagram.png)
+
 ## How our microservices interact
 
 The INVENTORY domain keeps track of vehichle inventory and the parts needed to make up that data like vehichle models and manufacturers.
 
 The other two microservices, sales and services, rely on the data from the inventory domain.  A poller is used in each to keep track of the inventory vehicles and their statuses.
 
-![Domain Driven Design Diagram](ddd-diagram.png)
+
 
 ## INVENTORY MICROSERVICE
 

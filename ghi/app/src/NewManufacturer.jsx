@@ -20,8 +20,6 @@ export default function NewManufacturer() {
             "name": manufacturer,
         };
 
-        console.log(formData)
-
         const resourceUrl = "http://localhost:8100/api/manufacturers/";
         const options = {
             method: "POST",
