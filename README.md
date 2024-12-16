@@ -8,7 +8,7 @@ CarCar is a web application to manage the ins and outs of a automobile dealershi
 * Eric Warren - Sales Microservice
 
 ## Installation
->Note: You need git and Docker installed on your machine.
+>Note: You need Node.js (v20.18.0), git (2.39.3), and Docker (27.3.1) installed on your machine.
 
 1. Fork this repository: https://gitlab.com/eswarren18/project-beta.git
 2. Clone the repository locally to your machine.
@@ -31,7 +31,9 @@ TODO: DIAGRAM HERE
 
 ## Inventory Microservice
 
-TODO
+**Manufacturer**
+**Model**
+**Automobile**
 
 ## Service Microservice
 
@@ -44,7 +46,7 @@ The backend of the microservice includes models for a **Salesperson**, **Custome
 
 The microservice's frontend consists of forms to create salespeople, customers, and a sales records. Tables for each of these aspects can also be viewed. Each can be viewed in their entirity or filtering options are also included to enhance the searchability.
 
-### HTTP Endpoints to Access data
+### HTTP Endpoints to Access Data
 
 > Note: The id value listed in each URL is the id attribute of an instance of the model.
 
