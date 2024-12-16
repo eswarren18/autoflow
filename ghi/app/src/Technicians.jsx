@@ -37,8 +37,8 @@ function Technicians() {
 
   return (
     <div className="card mt-2 p-4">
-      <div className="d-flex justify-content-between align-items-start mb-2">
-        <div className="h2">Technicians</div>
+      <div className="d-flex justify-content-between align-items-center mb-2">
+        <div className="h1 fw-bold">Technicians</div>
         <NavLink className="btn btn-success fw-bold" to="/staff/technicians/new">
           Add New Technician
         </NavLink>

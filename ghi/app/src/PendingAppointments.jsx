@@ -27,7 +27,7 @@ function PendingAppointments() {
       if (response.ok) {
         const data = await response.json();
         setAppointments(
-          data.appointments.filter(a => a.status === 'pending')
+          data.appointments.filter(a => a.status === 'pending').sort((a, b) => new Date(b.date_time) - new Date(a.date_time))
         );
       } else {
         console.error(response);
@@ -75,8 +75,8 @@ function PendingAppointments() {
 
   return (
     <div className="card mt-2 p-4">
-      <div className="d-flex justify-content-between align-items-start mb-2">
-        <div className="h2">Scheduled Service Appointments</div>
+      <div className="d-flex justify-content-between align-items-center mb-2">
+        <div className="h1 fw-bold">Scheduled Service Appointments</div>
         <NavLink className="btn btn-success fw-bold" to="/services/new">
           Schedule New Appointment
         </NavLink>

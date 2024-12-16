@@ -16,7 +16,7 @@ export default function Sales() {
     };
 
     const fetchSalespeople = async () => {
-        const getSalespeopleResponse = await fetch ("http://localhost:8090/api/salespeople/");
+        const getSalespeopleResponse = await fetch("http://localhost:8090/api/salespeople/");
         if (getSalespeopleResponse.ok) {
             const { salespeople } = await getSalespeopleResponse.json();
             setSalespeopleState(salespeople);
@@ -38,17 +38,13 @@ export default function Sales() {
 
     return (
         <div className="p-4 border rounded w-100">
-            <div className="row">
-                <div className="col-md-4">
-                    <h1><b>Sales History</b></h1>
-                </div>
-                <div className="col-md-4 offset-md-4 d-flex align-items-center justify-content-end">
-                    <Link to="/sales/new" className="btn btn-success">
-                        Add a Sales Record
-                    </Link>
-                </div>
+            <div className="d-flex align-items-center justify-content-between">
+                <h1 className="fw-bold">Sales History</h1>
+                <Link to="/sales/new" className="btn btn-success fw-bold">
+                    Add a Sales Record
+                </Link>
             </div>
-            <div className="form-floating mb-3">
+            <div className="form-floating mb-3 mt-3">
                 <select required className="form-select" id="salesperson" value={salespersonState} onChange={handleSalespersonChange}>
                     <option value="">Select a Salesperson</option>
                     {salespeopleState.map((salesperson) => {

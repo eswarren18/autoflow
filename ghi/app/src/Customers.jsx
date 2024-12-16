@@ -18,15 +18,11 @@ export default function Customers() {
 
     return (
         <div className="col-6 p-4 border rounded w-100">
-            <div className="row">
-                <div className="col-md-4">
-                    <h1><b>Customers</b></h1>
-                </div>
-                <div className="col-md-4 offset-md-4 d-flex align-items-center justify-content-end">
-                    <Link to="/customers/new" className="btn btn-success">
-                        Add a Customer
-                    </Link>
-                </div>
+            <div className="d-flex align-items-center justify-content-between">
+                <h1 className="fw-bold">Customers</h1>
+                <Link to="/customers/new" className="btn btn-success fw-bold">
+                    Add a Customer
+                </Link>
             </div>
             {customersState.length > 0 ? (
                 <table className="table table-striped">

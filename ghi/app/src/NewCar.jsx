@@ -59,8 +59,8 @@ export default function NewCar() {
 
     return (
         <div className="d-flex align-items-center flex-column">
-            <form className="col-6 p-4 border rounded" onSubmit={handleSubmit}>
-                <h1>Add a Automobile to the Inventory</h1>
+            <form className="col-6 p-4 shadow mt-4" onSubmit={handleSubmit}>
+                <h2 className="mb-4">Add an Automobile to the Inventory</h2>
                 <div className="form-floating mb-3">
                     <input
                         required

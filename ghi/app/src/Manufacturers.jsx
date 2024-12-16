@@ -37,8 +37,8 @@ function Manufacturers() {
 
   return (
     <div className="card mt-2 p-4">
-      <div className="d-flex justify-content-between align-items-start mb-2">
-        <div className="h2">Automobile Manufacturers</div>
+      <div className="d-flex justify-content-between align-items-center mb-2">
+        <div className="h1 fw-bold">Automobile Manufacturers</div>
         <NavLink className="btn btn-success fw-bold" to="/manufacturers/new">
           Add New Automobile Manufacturer
         </NavLink>

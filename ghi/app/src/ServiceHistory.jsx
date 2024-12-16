@@ -26,7 +26,7 @@ function ServiceHistory() {
       const response = await fetch('http://localhost:8080/api/appointments/');
       if (response.ok) {
         const data = await response.json();
-        setAppointments(data.appointments);
+        setAppointments(data.appointments.sort((a, b) => new Date(b.date_time) - new Date(a.date_time)));
       } else {
         console.error(response);
       }
@@ -58,8 +58,8 @@ function ServiceHistory() {
 
   return (
     <div className="card mt-2 p-4">
-      <div className="d-flex justify-content-between align-items-start mb-2">
-        <div className="h2">Service History</div>
+      <div className="d-flex justify-content-between align-items-center mb-2">
+        <div className="h1 fw-bold">Service History</div>
         <NavLink className="btn btn-success fw-bold" to="/services/new">
           Schedule New Appointment
         </NavLink>
