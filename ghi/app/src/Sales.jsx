@@ -76,10 +76,10 @@ export default function Sales() {
                         {filteredSales.length > 0 ? (
                             filteredSales.map((sale) => (
                                 <tr key={sale.id}>
-                                    <td>{sale.salesperson.employee_id}</td>
-                                    <td>{`${sale.salesperson.first_name} ${sale.salesperson.last_name}`}</td>
-                                    <td>{`${sale.customer.first_name} ${sale.customer.last_name}`}</td>
-                                    <td>{sale.automobile.vin}</td>
+                                    <td className="text-uppercase">{sale.salesperson.employee_id}</td>
+                                    <td className="text-capitalize">{`${sale.salesperson.first_name} ${sale.salesperson.last_name}`}</td>
+                                    <td className="text-capitalize">{`${sale.customer.first_name} ${sale.customer.last_name}`}</td>
+                                    <td className="text-uppercase">{sale.automobile.vin}</td>
                                     <td>{`$${sale.price.toFixed(2)}`}</td>
                                 </tr>
                             ))

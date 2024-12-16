@@ -104,12 +104,12 @@ function PendingAppointments() {
         <tbody>
           {currentRecords.map((appointment) => (
             <tr key={appointment.id}>
-              <td>{appointment.customer} {autos.includes(appointment.vin) ? <span style={{ fontSize: '12px' }} className='fw-bold bg-warning p-1 rounded font-size-xl'>VIP</span> : ''}</td>
-              <td>{appointment.vin}</td>
+              <td className="text-capitalize">{appointment.customer} {autos.includes(appointment.vin) ? <span style={{ fontSize: '12px' }} className='fw-bold bg-warning p-1 rounded font-size-xl'>VIP</span> : ''}</td>
+              <td className="text-uppercase">{appointment.vin}</td>
               <td>{new Date(appointment.date_time).toLocaleDateString('en-US')}</td>
               <td>{new Date(new Date(appointment.date_time).getTime() + 8 * 60 * 60 * 1000).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })}</td>
-              <td>{appointment.technician.first_name} {appointment.technician.last_name}</td>
-              <td>{appointment.reason}</td>
+              <td className="text-capitalize">{appointment.technician.first_name} {appointment.technician.last_name}</td>
+              <td className="text-capitalize">{appointment.reason}</td>
               <td>
                 <div className="dropdown">
                   <button style={{ backgroundColor: 'lightblue'}} className="btn btn-sm  py-0 dropdown-toggle" type="button" id={`dropdownMenuButton${appointment.id}`} data-bs-toggle="dropdown" aria-expanded="false">

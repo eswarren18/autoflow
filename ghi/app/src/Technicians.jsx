@@ -62,9 +62,9 @@ function Technicians() {
         <tbody>
           {currentRecords.map((technician) => (
             <tr key={technician.id}>
-              <td>{technician.employee_id}</td>
-              <td>{technician.first_name}</td>
-              <td>{technician.last_name}</td>
+              <td className="text-uppercase">{technician.employee_id}</td>
+              <td className="text-capitalize">{technician.first_name}</td>
+              <td className="text-capitalize">{technician.last_name}</td>
             </tr>
           ))}
         </tbody>

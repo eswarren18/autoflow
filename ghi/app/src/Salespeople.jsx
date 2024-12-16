@@ -41,9 +41,9 @@ export default function Salespeople() {
                         {salespeopleState.map((salesperson) => {
                             return (
                                 <tr key={salesperson.id}>
-                                    <td>{salesperson.employee_id}</td>
-                                    <td>{salesperson.first_name}</td>
-                                    <td>{salesperson.last_name}</td>
+                                    <td className="text-uppercase">{salesperson.employee_id}</td>
+                                    <td className="text-capitalize">{salesperson.first_name}</td>
+                                    <td className="text-capitalize">{salesperson.last_name}</td>
                                 </tr>
                             );
                         })}

@@ -65,7 +65,7 @@ function Cars() {
         <tbody>
           {currentRecords.map((auto) => (
             <tr key={auto.vin}>
-              <td>{auto.vin}</td>
+              <td className="text-uppercase">{auto.vin}</td>
               <td className='text-capitalize'>{auto.color}</td>
               <td>{auto.year}</td>
               <td className='text-capitalize'>{auto.model.name}</td>

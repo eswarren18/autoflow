@@ -42,10 +42,10 @@ export default function Customers() {
                         {customersState.map((customer) => {
                             return (
                                 <tr key={customer.id}>
-                                    <td>{customer.first_name}</td>
-                                    <td>{customer.last_name}</td>
+                                    <td className="text-capitalize">{customer.first_name}</td>
+                                    <td className="text-capitalize">{customer.last_name}</td>
                                     <td>{customer.phone_number}</td>
-                                    <td>{customer.address}</td>
+                                    <td className="text-capitalize">{customer.address}</td>
                                 </tr>
                             );
                         })}
