@@ -20,17 +20,17 @@ import Models from "./Models"
 import NewModel from "./NewModel"
 
 function App() {
-	return (
-		<BrowserRouter>
-			<Nav />
-			<div className="container mt-4">
-				<Routes>
-					<Route path="/" element={<MainPage />} />
-					<Route path="/staff/technicians" element={<Technicians />} />
-					<Route path="/staff/technicians/new" element={<NewTechnician />} />
-					<Route path="/services/new" element={<NewAppointment />} />
-					<Route path="/services/upcoming" element={<PendingAppointments />} />
-					<Route path="/services/" element={<ServiceHistory />} />
+    return (
+        <BrowserRouter>
+            <Nav />
+            <div className="container mt-4">
+                <Routes>
+                    <Route path="/" element={<MainPage />} />
+                    <Route path="/staff/technicians" element={<Technicians />} />
+                    <Route path="/staff/technicians/new" element={<NewTechnician />} />
+                    <Route path="/services/new" element={<NewAppointment />} />
+                    <Route path="/services/upcoming" element={<PendingAppointments />} />
+                    <Route path="/services/" element={<ServiceHistory />} />
                     <Route path="/staff/sales" element={<Salespeople />} />
                     <Route path="/staff/sales/new" element={<NewSalesperson />} />
                     <Route path="/customers" element={<Customers />} />
@@ -43,10 +43,10 @@ function App() {
                     <Route path="/models/new" element={<NewModel />} />
                     <Route path="/manufacturers" element={<Manufacturers />} />
                     <Route path="/manufacturers/new" element={<NewManufacturer />} />
-				</Routes>
-			</div>
-		</BrowserRouter>
-	);
+                </Routes>
+            </div>
+        </BrowserRouter>
+    );
 }
 
 export default App;

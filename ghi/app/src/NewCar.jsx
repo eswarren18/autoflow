@@ -109,7 +109,7 @@ export default function NewCar() {
                     <select required className="form-select" id="model" value={model} onChange={handleChange}>
                         <option value="">Select a Model</option>
                         {modelsState.map(model => {
-                            return(
+                            return (
                                 <option
                                     key={model.id}
                                     value={model.id}

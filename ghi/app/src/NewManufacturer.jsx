@@ -11,7 +11,7 @@ export default function NewManufacturer() {
 
     const handleFormChange = async (event) => {
         const { id, value } = event.target;
-        setFormState({...formState, [id]: value,});
+        setFormState({ ...formState, [id]: value, });
     };
 
     const handleSubmit = async (event) => {

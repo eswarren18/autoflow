@@ -92,7 +92,7 @@ export default function NewModel() {
                     <select required className="form-select" id="manufacturer" value={manufacturer} onChange={handleChange}>
                         <option value="">Select a Manufacturer</option>
                         {manufacturersState.map(manufacturer => {
-                            return(
+                            return (
                                 <option
                                     key={manufacturer.id}
                                     value={manufacturer.id}

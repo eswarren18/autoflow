@@ -1,33 +1,35 @@
 body {
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-		"Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-		"Helvetica Neue", sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-		monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
 }
 
-#dt-search-1{
-	margin-bottom: 10px;
+#dt-search-1 {
+    margin-bottom: 10px;
 }
 
-.dt-info{
-	text-align: right;
-	margin-bottom: 5px;
+.dt-info {
+    text-align: right;
+    margin-bottom: 5px;
 }
-.dt-paging{
-	float: right;
+
+.dt-paging {
+    float: right;
 }
+
 .dropdown-item.active {
-	color: green !important;
-	background-color: transparent !important;
-	font-weight: bold;
-  }
+    color: green !important;
+    background-color: transparent !important;
+    font-weight: bold;
+}
 
 .no-striped-background td {
     background-color: white !important;

@@ -23,7 +23,7 @@ export default function NewSale() {
     const fetchData = async () => {
         const getAutoResponse = await fetch("http://localhost:8100/api/automobiles/")
         const getSalespersonResponse = await fetch("http://localhost:8090/api/salespeople/")
-        const getCustomerResponse = await fetch ("http://localhost:8090/api/customers/")
+        const getCustomerResponse = await fetch("http://localhost:8090/api/customers/")
         if (getAutoResponse.ok && getSalespersonResponse.ok && getCustomerResponse.ok) {
             const { autos } = await getAutoResponse.json();
             const { salespeople } = await getSalespersonResponse.json();
@@ -65,7 +65,7 @@ export default function NewSale() {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({"sold": true}),
+            body: JSON.stringify({ "sold": true }),
         }
 
         const putResponse = await fetch(putUrl, putOptions);
@@ -86,7 +86,7 @@ export default function NewSale() {
                     <select required className="form-select" id="vin" value={vin} onChange={handleChange}>
                         <option value="">Select an Automobile by VIN</option>
                         {autosState.map(auto => {
-                            return(
+                            return (
                                 <option
                                     key={auto.id}
                                     value={auto.vin}
@@ -102,7 +102,7 @@ export default function NewSale() {
                     <select required className="form-select" id="salesperson" value={salesperson} onChange={handleChange}>
                         <option value="">Select a Salesperson</option>
                         {salespeopleState.map(salesperson => {
-                            return(
+                            return (
                                 <option
                                     key={salesperson.id}
                                     value={salesperson.id}
@@ -118,7 +118,7 @@ export default function NewSale() {
                     <select required className="form-select" id="customer" value={customer} onChange={handleChange}>
                         <option value="">Select a Customer</option>
                         {customerState.map(customer => {
-                            return(
+                            return (
                                 <option
                                     key={customer.id}
                                     value={customer.id}
