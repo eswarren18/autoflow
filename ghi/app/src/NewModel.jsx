@@ -59,7 +59,7 @@ export default function NewModel() {
     return (
         <div className="d-flex align-items-center flex-column">
             <form className="col-6 p-4 shadow mt-4" onSubmit={handleSubmit}>
-                <h2 className="mb-4">Create a Vehicle Model</h2>
+                <h2 className="mb-4">Add a Vehicle Model</h2>
                 <div className="form-floating mb-3">
                     <input
                         required
@@ -104,7 +104,7 @@ export default function NewModel() {
                     </select>
                     <label htmlFor="manufacturer">Manufacturer</label>
                 </div>
-                <button className="btn btn-success">Create</button>
+                <button className="btn btn-success w-100 fw-bold py-2 fs-5">Add Model</button>
             </form>
             {showSuccess && (
                 <div

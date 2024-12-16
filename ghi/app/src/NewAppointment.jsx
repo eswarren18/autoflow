@@ -71,7 +71,7 @@ function NewAppointment() {
                             New service appointment sucessfully created!
                         </div>
                     }
-                    <h2 className="mb-4">Schedule a service appointment</h2>
+                    <h2 className="mb-4">Schedule a Service Appointment</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="form-floating mb-3">
                             <input value={formData.vin} onChange={handleChange} placeholder="Automobile VIN" required type="text" name="vin" id="vin" className="form-control" />

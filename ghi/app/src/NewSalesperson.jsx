@@ -87,7 +87,7 @@ export default function NewSalesperson() {
                         Employee ID
                     </label>
                 </div>
-                <button className="btn btn-success">Create</button>
+                <button className="btn btn-success w-100 fw-bold py-2 fs-5">Add Salesperson</button>
             </form>
             {showSuccess && (
                 <div

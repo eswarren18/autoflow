@@ -47,7 +47,7 @@ function NewTechnician() {
               New technician sucessfully added!
             </div>
           }
-          <h2 className="mb-4">Add a new technician</h2>
+          <h2 className="mb-4">Add a Technician</h2>
           <form onSubmit={handleSubmit}>
             <div className="form-floating mb-3">
               <input value={formData.employee_id} onChange={handleChange} placeholder="Employee ID" required type="text" name="employee_id" id="employee_id" className="form-control" />

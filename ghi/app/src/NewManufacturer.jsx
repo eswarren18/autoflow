@@ -56,7 +56,7 @@ export default function NewManufacturer() {
                         Manufacturer
                     </label>
                 </div>
-                <button className="btn btn-success">Create</button>
+                <button className="btn btn-success w-100 fw-bold py-2 fs-5">Add Manufacturer</button>
             </form>
             {showSuccess && (
                 <div

@@ -122,7 +122,7 @@ export default function NewCustomer() {
                         Phone Number
                     </label>
                 </div>
-                <button className="btn btn-success">Create</button>
+                <button className="btn btn-success w-100 fw-bold py-2 fs-5">Add Customer</button>
             </form>
             {showSuccess && (
                 <div
