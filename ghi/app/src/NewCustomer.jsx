@@ -33,8 +33,6 @@ export default function NewCustomer() {
             "phone_number": revisedPhoneNumber,
         };
 
-        console.log(formData)
-
         const resourceUrl = "http://localhost:8090/api/customers/";
         const options = {
             method: "POST",
