@@ -37,6 +37,8 @@ The INVENTORY domain keeps track of vehichle inventory and the parts needed to m
 
 The other two microservices, sales and services, rely on the data from the inventory domain.  A poller is used in each to keep track of the inventory vehicles and their statuses.
 
+![Domain Driven Design Diagram](ddd-diagram.png)
+
 ## INVENTORY MICROSERVICE
 
 The inventory microservice consists of the following three models:
