@@ -1,45 +1,80 @@
-# CarCar
+# Autoflow
+
 The premiere solution for automobile dealership management!
 
-CarCar is a web application to manage the ins and outs of a automobile dealership. Specifically, it manages inventory, services, and sales.
-## Team
+Autoflow is a web application to manage the ins and outs of a automobile dealership. Specifically, it manages inventory, services, and sales.
 
-* Tim Beckett - Service Microservice
-* Eric Warren - Sales Microservice
+## Developers
+
+<div style="margin-left: 20px;">
+
+  <div style="margin-bottom: 15px;">
+    <strong style="font-size:1.2em;">Eric Warren</strong><span> - Sales Microservice</span><br>
+    <a href="https://www.linkedin.com/in/eric-warren-b-s-9074b661/" style="color:#0077b5; text-decoration: none;">LinkedIn</a> |
+    <a href="https://gitlab.com/eswarren18" style="color:#fc6d26; text-decoration: none;">GitLab</a>
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <strong style="font-size:1.2em;">Tim Beckett</strong><span> - Service Microservice</span><br>
+    <a href="https://www.linkedin.com/in/tbeckett1211/" style="color:#0077b5; text-decoration: none;">LinkedIn</a> |
+    <a href="https://gitlab.com/tbeckett1211" style="color:#fc6d26; text-decoration: none;">GitLab</a>
+  </div>
+</div>
 
 ## Installation
->Note: You need Node.js, git, and Docker installed on your machine.
+
+> Note: You need Node.js, git, and Docker installed on your machine.
 
 1. Fork this repository: https://gitlab.com/eswarren18/project-beta.git
 2. Clone the repository locally to your machine.
+
 ```
 git clone https://gitlab.com/eswarren18/project-beta.git
 ```
+
 3. Build and run the project.
+
 ```
 docker volume create beta-data
 docker-compose build
 docker-compose up
 ```
+
 4. View the project in the browser of your choice at: http://localhost:5173/
 
 ## Structure
 
-CarCar is has three interactive microservices.
+Autoflow is has three interactive microservices.
 
 - **Inventory**
 - **Services**
 - **Sales**
 
-![Domain Driven Design Diagram](ddd-diagram.png)
+---
+
+<p align="center"><i>Domain Driven Design Diagram</i><br>
+<img src="site-images/ddd-diagram.png" alt="Domain Driven Design Diagram"></p>
+
+---
+
+<p align="center"><i>Autoflow's Homepage</i><br>
+<img src="site-images/home.png" alt="Autoflow's Homepage"></p>
+
+---
+
+<p align="center"><i>View of all sales records</i><br>
+<img src="site-images/sales-record.png" alt="Sales Records"></p>
+
+---
+
+<p align="center"><i>Example of Autoflow's forms</i><br>
+<img src="site-images/sales-form.png" alt="Sales Form"></p>
 
 ## How our microservices interact
 
 The INVENTORY domain keeps track of vehichle inventory and the parts needed to make up that data like vehichle models and manufacturers.
 
-The other two microservices, sales and services, rely on the data from the inventory domain.  A poller is used in each to keep track of the inventory vehicles and their statuses.
-
-
+The other two microservices, sales and services, rely on the data from the inventory domain. A poller is used in each to keep track of the inventory vehicles and their statuses.
 
 ## INVENTORY MICROSERVICE
 
@@ -48,6 +83,7 @@ The inventory microservice consists of the following three models:
 ### 1. **Manufacturer**
 
 - **API Endpoints:**
+
   - `http://localhost:8100/api/manufacturers/`
     - `GET` - List all manufacturers
     - `POST` - Create a manufacturer
@@ -61,11 +97,14 @@ The inventory microservice consists of the following three models:
     {
         "name": String | Unique
     }
+  ```
+
 ---
 
 ### 2. **VehicleModel**
 
 - **API Endpoints:**
+
   - `http://localhost:8100/api/models/`
     - `GET` - List all models
     - `POST` - Create a model
@@ -81,6 +120,7 @@ The inventory microservice consists of the following three models:
       "picture_url": URL,
       "manufacturer_id": FK: Manufacturer.id
     }
+  ```
 - **Dependency:** Relies on the **Manufacturer** model.
 
 ---
@@ -88,6 +128,7 @@ The inventory microservice consists of the following three models:
 ### 3. **Automobile**
 
 - **API Endpoints:**
+
   - `http://localhost:8100/api/automobiles/`
     - `GET` - List all automobiles
     - `POST` - Create a automobile
@@ -104,8 +145,8 @@ The inventory microservice consists of the following three models:
         "vin": String | Unique,
         "model_id": FK: VehicleModel.id
     }
+  ```
 - **Dependency:** Relies on the **VehichleModel** model which relies on the **Manufacturer** model.
-
 
 ## SERVICES MICROSERVICE
 
@@ -114,6 +155,7 @@ The services microservice consists of the following three models:
 ### 1. **Technician**
 
 - **API Endpoints:**
+
   - `http://localhost:8080/api/technicians/`
     - `GET` - List all technicians
     - `POST` - Create a technician
@@ -128,11 +170,14 @@ The services microservice consists of the following three models:
         "last_name": String,
         "employee_id": String | Unique
     }
+  ```
+
 ---
 
 ### 2. **Appointment**
 
 - **API Endpoints:**
+
   - `http://localhost:8080/api/appointments/`
     - `GET` - List all appointments
     - `POST` - Create a appointment
@@ -147,13 +192,14 @@ The services microservice consists of the following three models:
 - **POST Structure:**
   ```json
     {
-		"date_time": DATE TIME,
-		"reason": STRING,
-		"status": STRING,
-		"vin": STRING,
-		"customer": STRING,
-		"technician": FK: Technician.id
+  	"date_time": DATE TIME,
+  	"reason": STRING,
+  	"status": STRING,
+  	"vin": STRING,
+  	"customer": STRING,
+  	"technician": FK: Technician.id
     }
+  ```
 - **Dependency:** Relies on the **Manufacturer** model.
 
 ---
@@ -161,11 +207,11 @@ The services microservice consists of the following three models:
 ### 3. **AutomobileVO**
 
 - **API Endpoints:**
+
   - `http://localhost:8080/api/autos/`
     - `GET` - List all automobile VOs
 
 - **POLLER:** Pulls live data every 60 seconds from http://localhost:8100/api/automobiles/
-
 
 ## SALES MICROSERVICE
 
