@@ -1,9 +1,17 @@
 stages:
   - test
 
-tests:
+backend-tests:
   image: python:3.10-bullseye
   stage: test
   script:
     - pip install flake8
     - flake8 sales/api
+
+frontend-tests:
+  image: node:lts-bullseye
+  stage: test
+  script:
+    - cd ghi
+    - npm install
+    - npm run lint
