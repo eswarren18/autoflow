@@ -21,7 +21,7 @@ function PendingAppointments() {
         }
     }
 
-    async function fetchPendingAppointments(autoVins) {
+    async function fetchPendingAppointments() {
         try {
             const response = await fetch('http://localhost:8080/api/appointments/');
             if (response.ok) {

@@ -21,7 +21,7 @@ function ServiceHistory() {
         }
     }
 
-    async function fetchAppointments(autoVins) {
+    async function fetchAppointments() {
         try {
             const response = await fetch('http://localhost:8080/api/appointments/');
             if (response.ok) {

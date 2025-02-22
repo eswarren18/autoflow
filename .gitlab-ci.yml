@@ -12,6 +12,6 @@ frontend-tests:
   image: node:lts-bullseye
   stage: test
   script:
-    - cd ghi
+    - cd ghi/app
     - npm install
     - npm run lint
