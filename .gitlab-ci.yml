@@ -1,1 +1,2 @@
-test: echo "Hello world"
+test: 
+    script: echo "Hello world 2"
