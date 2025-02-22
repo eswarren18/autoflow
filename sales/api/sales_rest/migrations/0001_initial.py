@@ -74,7 +74,10 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("price", models.DecimalField(decimal_places=2, max_digits=15)),
+                ("price", models.DecimalField(
+                    decimal_places=2,
+                    max_digits=15
+                    )),
                 (
                     "automobile",
                     models.ForeignKey(

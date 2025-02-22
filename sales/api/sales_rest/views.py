@@ -56,14 +56,20 @@ def api_salespeople(request):
     if request.method == "GET":
         try:
             salespeople = Salesperson.objects.all().order_by("last_name")
-            return JsonResponse({"salespeople": salespeople}, encoder=SalespersonListEncoder)
+            return JsonResponse(
+                {"salespeople": salespeople}, encoder=SalespersonListEncoder
+            )
         except Exception as e:
             return JsonResponse({"Error": str(e)}, status=500)
     else:
         try:
             content = json.loads(request.body)
             salesperson = Salesperson.objects.create(**content)
-            return JsonResponse(salesperson, encoder=SalespersonListEncoder, safe=False)
+            return JsonResponse(
+                salesperson,
+                encoder=SalespersonListEncoder,
+                safe=False
+            )
         except Exception as e:
             return JsonResponse({"Error": str(e)}, status=400)
 
@@ -82,14 +88,21 @@ def api_customers(request):
     if request.method == "GET":
         try:
             customers = Customer.objects.all().order_by("last_name")
-            return JsonResponse({"customers": customers}, encoder=CustomerListEncoder)
+            return JsonResponse(
+                {"customers": customers},
+                encoder=CustomerListEncoder
+            )
         except Exception as e:
             return JsonResponse({"Error": str(e)}, status=500)
     else:
         try:
             content = json.loads(request.body)
             customer = Customer.objects.create(**content)
-            return JsonResponse(customer, encoder=CustomerListEncoder, safe=False)
+            return JsonResponse(
+                customer,
+                encoder=CustomerListEncoder,
+                safe=False
+            )
         except Exception as e:
             return JsonResponse({"Error": str(e)}, status=400)
 
@@ -126,7 +139,10 @@ def api_sales(request):
             sale = Sale.objects.create(**content)
             return JsonResponse(sale, encoder=SaleListEncoder, safe=False)
         except KeyError as e:
-            return JsonResponse({"Error": f"Missing required field: {str(e)}"}, status=400)
+            return JsonResponse(
+                {"Error": f"Missing required field: {str(e)}"},
+                status=400
+            )
         except Exception as e:
             return JsonResponse({"Error": str(e)}, status=400)
 
