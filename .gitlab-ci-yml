@@ -1,0 +1,28 @@
+# stages:
+#   - test
+#   - build
+
+# backend-tests:
+#   image: python:3.10-bullseye
+#   stage: test
+#   script:
+#     # Linting tests
+#     - pip install flake8
+#     - flake8 sales/api # services/api inventory/api
+#     # Unit tests
+#     # TBD
+
+# frontend-tests:
+#   image: node:lts-bullseye
+#   stage: test
+#   script:
+#     - cd ghi/app
+#     - npm install
+#     - npm run lint
+
+# build-api-image:
+#   stage: build
+#   image: docker:git
+#   needs:
+#     - backend-tests
+#     - frontend-tests
